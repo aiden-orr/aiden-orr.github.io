@@ -34,7 +34,7 @@ nav a:hover {
 }
 
 main {
-    background-color: white;
+    background-color: #affddf;
     padding: 25px;
     border-radius: 8px;
     line-height: 1.6;
@@ -82,4 +82,18 @@ figure img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
 }
