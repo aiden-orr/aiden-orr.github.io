@@ -72,3 +72,14 @@ footer a {
 footer a:hover {
     color: #a49665;
 }
+
+figure {
+    text-align: center;
+}
+
+figure img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
