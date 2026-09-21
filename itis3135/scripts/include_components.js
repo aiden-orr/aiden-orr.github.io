@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll("[data-include]");
 
     elements.forEach((element) => {
@@ -13,4 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("Error loading component:", error);
             });
     });
-});
+});*/
