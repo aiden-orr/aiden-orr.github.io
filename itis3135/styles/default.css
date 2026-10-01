@@ -100,3 +100,8 @@ figure img {
     width: 100%;
     height: auto;
 }
+
+h6 {
+    font-size: 2rem;
+    white-space: nowrap;
+}
