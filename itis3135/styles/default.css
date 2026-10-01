@@ -78,13 +78,6 @@ figure {
     text-align: center;
 }
 
-figure img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
 @media (max-width: 600px) {
     body {
         padding: 10px;
@@ -95,13 +88,14 @@ figure img {
     }
 }
 
+h6 {
+    font-size: 2rem;
+    white-space: nowrap;
+}
+
 figure img {
     max-width: 400px;
     width: 100%;
     height: auto;
-}
-
-h6 {
-    font-size: 2rem;
-    white-space: nowrap;
+    border-radius: 8px;
 }
