@@ -90,7 +90,7 @@ figure {
 
 h6 {
     font-size: 2rem;
-    white-space: nowrap;
+    /*white-space: nowrap; */
 }
 
 figure img {
