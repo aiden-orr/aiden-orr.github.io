@@ -99,3 +99,11 @@ figure img {
     height: auto;
     border-radius: 8px;
 }
+
+section img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
