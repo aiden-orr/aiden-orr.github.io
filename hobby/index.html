@@ -9,186 +9,183 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <style>
-        :root {
-            --background: #f3ece5;
-            --primary: #46304f;
-            --secondary: #714d70;
-            --accent: #ac593e;
-            --text: #352c38;
-            --card: #fff8f1;
-        }
+        
+:root {
+    --background: #f3ece5;
+    --primary: #46304f;
+    --secondary: #714d70;
+    --accent: #ac593e;
+    --text: #352c38;
+    --card: #fff8f1;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: var(--background);
-            color: var(--text);
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
 
-        header {
-            background-color: var(--primary);
-            color: #fff5e9;
-            text-align: center;
-            padding: 25px;
-            border-radius: 10px;
-        }
+header {
+    background-color: var(--primary);
+    color: #fff5e9;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+}
 
-        h1, h2, h3 {
-            font-family: Georgia, serif;
-        }
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 10px;
+}
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-        }
+h2 {
+    font-family: Georgia, serif;
+    color: var(--primary);
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 10px;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
+h3 {
+    font-family: Georgia, serif;
+    color: var(--secondary);
+}
 
-        nav a {
-            color: #fff5e9;
-            background-color: var(--secondary);
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
 
-        nav a:hover,
-        nav a.active {
-            background-color: #f2cfaa;
-            color: var(--primary);
-        }
+nav a {
+    color: #fff5e9;
+    background-color: var(--secondary);
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        a:focus-visible {
-            outline: 3px solid #eea85e;
-            outline-offset: 3px;
-        }
+nav a:hover,
+nav a.active {
+    background-color: #f2cfaa;
+    color: var(--primary);
+}
 
-        main {
-            margin-top: 25px;
-            background-color: var(--card);
-            padding: 30px;
-            border-radius: 10px;
-            min-height: 450px;
-        }
+a:focus-visible {
+    outline: 3px solid #eea85e;
+    outline-offset: 3px;
+}
 
-        section {
-            display: none;
-        }
+main {
+    margin-top: 25px;
+    background-color: var(--card);
+    padding: 30px;
+    border-radius: 10px;
+    min-height: 450px;
+}
 
-        section.active {
-            display: block;
-        }
+section {
+    display: none;
+}
 
-        h2 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 10px;
-        }
+section.active {
+    display: block;
+}
 
-        h3 {
-            color: var(--secondary);
-        }
+p {
+    margin-bottom: 15px;
+}
 
-        p {
-            margin-bottom: 15px;
-        }
+figure {
+    max-width: 700px;
+    margin: 25px auto;
+    text-align: center;
+}
 
-        figure {
-            max-width: 700px;
-            margin: 25px auto;
-            text-align: center;
-        }
+figure img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid var(--secondary);
+}
 
-        figure img {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            border-radius: 10px;
-            border: 3px solid var(--secondary);
-        }
+figcaption {
+    margin-top: 10px;
+    font-weight: bold;
+}
 
-        figcaption {
-            margin-top: 10px;
-            font-weight: bold;
-        }
+.ai-explanation {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #625160;
+}
 
-        .ai-explanation {
-            font-style: italic;
-            font-size: 0.9rem;
-            color: #625160;
-        }
+.info-box {
+    background-color: #eee0d6;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 5px solid var(--accent);
+    border-radius: 5px;
+}
 
-        .info-box {
-            background-color: #eee0d6;
-            padding: 15px;
-            margin: 15px 0;
-            border-left: 5px solid var(--accent);
-            border-radius: 5px;
-        }
+ul, ol {
+    padding-left: 25px;
+}
 
-        ul, ol {
-            padding-left: 25px;
-        }
+li {
+    margin-bottom: 10px;
+}
 
-        li {
-            margin-bottom: 10px;
-        }
+footer {
+    background-color: var(--primary);
+    color: #fff5e9;
+    text-align: center;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+}
 
-        footer {
-            background-color: var(--primary);
-            color: #fff5e9;
-            text-align: center;
-            padding: 25px;
-            margin-top: 25px;
-            border-radius: 10px;
-        }
+footer a {
+    color: #f8d1a5;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    padding: 7px 12px;
+    border: 1px solid #f8d1a5;
+    border-radius: 5px;
+}
 
-        footer a {
-            color: #f8d1a5;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-            padding: 7px 12px;
-            border: 1px solid #f8d1a5;
-            border-radius: 5px;
-        }
+footer a:hover {
+    background-color: #f8d1a5;
+    color: var(--primary);
+}
 
-        footer a:hover {
-            background-color: #f8d1a5;
-            color: var(--primary);
-        }
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
+    main {
+        padding: 15px;
+    }
 
-            main {
-                padding: 15px;
-            }
+    nav a {
+        padding: 8px 10px;
+    }
+}
 
-            nav a {
-                padding: 8px 10px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-        }
     </style>
     <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
     <script src="https://lint.page/kit/4d0fe3.js"></script>
