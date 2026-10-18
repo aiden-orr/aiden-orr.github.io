@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aiden Orr's golf hobby website">
-    <title>Golf | Aiden Orr</title>
+    <title>Golf | What is Golf?</title>
     <link rel="icon" type="image/png" href="images/golf_favicon.png">
 
     <style>
@@ -239,9 +239,17 @@ footer a:hover {
 
             <figure>
                 <img src="images/harbour.png"
-                     alt="AI recreation of the 18th at Harbour Town">
-                <figcaption>A beautiful golf course.</figcaption>
+                    alt="AI-generated illustration of Harbour Town Golf Links with a lighthouse and coastal fairway">
+                <figcaption>
+                    Harbour Town Golf Links.
+                    <em class="ai-explanation">
+                        AI prompt: Create an illustrated coastal golf course
+                        with a red-and-white lighthouse, marina, marsh grass,
+                        water, and a green fairway.
+                    </em>
+                </figcaption>
             </figure>
+
         </section>
 
         <!-- WHO -->
@@ -271,11 +279,21 @@ footer a:hover {
                 </p>
             </div>
 
+            
             <figure>
                 <img src="images/tigerwoods.png"
-                     alt="Image of Tiger Woods">
-                <figcaption>The Greatest of All Time</figcaption>
+                    alt="AI-generated illustration of Tiger Woods celebrating with his fist raised">
+                <figcaption>
+                    Tiger Woods celebrating.
+                    <em class="ai-explanation">
+                        AI prompt: Create a detailed digital illustration
+                        of Tiger Woods celebrating a golf victory,
+                        wearing a red shirt and black cap,
+                        raising his fist while holding a putter.
+                    </em>
+                </figcaption>
             </figure>
+
         </section>
 
         <!-- WHEN -->
@@ -306,11 +324,20 @@ footer a:hover {
                 </p>
             </div>
 
+            
             <figure>
                 <img src="images/sunset.png"
-                     alt="AI Image of golf course during sunset">
-                <figcaption>Golf is enjoyable in different seasons.</figcaption>
+                    alt="AI-generated coastal golf course at sunset overlooking the ocean">
+                <figcaption>
+                    Coastal golf at sunset.
+                    <em class="ai-explanation">
+                        AI prompt: Create a colorful illustrated coastal
+                        golf course at golden hour, featuring rolling
+                        fairways, ocean waves, bunkers, and warm sunlight.
+                    </em>
+                </figcaption>
             </figure>
+
         </section>
 
         <!-- WHERE -->
@@ -345,11 +372,20 @@ footer a:hover {
                 are also excellent places to work on scoring.
             </p>
 
+            
             <figure>
                 <img src="images/augusta.svg"
-                     alt="AI recreation of the famous 12th hole at Augusta National">
-                <figcaption>A place to enjoy golf.</figcaption>
+                    alt="SVG illustration inspired by Augusta National's 12th hole with a stone bridge and creek">
+                <figcaption>
+                    Augusta National's famous 12th hole.
+                    <em class="ai-explanation">
+                        AI prompt: Create an SVG illustration inspired by
+                        Augusta National's 12th hole, featuring Rae's Creek,
+                        a stone bridge, sand bunkers, trees, and pink azaleas.
+                    </em>
+                </figcaption>
             </figure>
+
         </section>
 
         <!-- HOW -->
@@ -380,11 +416,21 @@ footer a:hover {
                 </p>
             </div>
 
+            
             <figure>
                 <img src="images/fundamentals.png"
-                     alt="Golf Swing Steps">
-                <figcaption>Learning the fundamentals of golf.</figcaption>
+                    alt="AI-generated illustration showing multiple stages of a golf swing">
+                <figcaption>
+                    Learning the fundamentals of the golf swing.
+                    <em class="ai-explanation">
+                        AI prompt: Create a black-and-white instructional
+                        illustration showing the stages of a golf swing,
+                        from address and backswing through impact and
+                        follow-through.
+                    </em>
+                </figcaption>
             </figure>
+
         </section>
 
         <!-- WHY -->
@@ -421,13 +467,16 @@ footer a:hover {
 
             <figure>
                 <img src="images/beach.png"
-                     alt="Scenic golf fairway illustration">
-                <figcaption>Golf combines competition and relaxation.</figcaption>
+                    alt="AI-generated illustration of a scenic seaside golf course">
+                <figcaption>
+                    Golf combines competition, nature, and relaxation.
+                    <em class="ai-explanation">
+                        AI prompt: Create a scenic digital illustration
+                        of a coastal golf course with green fairways,
+                        sand bunkers, ocean views, and a peaceful sky.
+                    </em>
+                </figcaption>
             </figure>
-            <p class="ai-explanation">
-                AI prompt: Create an original scenic illustration
-                of a peaceful golf course.
-            </p>
         </section>
 
         <!-- AI PROMPTS -->
@@ -467,16 +516,20 @@ footer a:hover {
                 has a hole, sun, flag, and hills.
             </p>
 
+            
             <figure>
-                <img src="images/golf_favicon.jpeg"
-                     alt="Original vector golf course artwork">
-                <figcaption>AI-assisted SVG artwork.</figcaption>
+                <img src="images/golf_favicon.png"
+                    alt="AI-generated golf favicon with a flag, hills, sun, and golf ball">
+                <figcaption>
+                    My AI-generated golf favicon.
+                    <em class="ai-explanation">
+                        AI prompt: Create a golf favicon matching my
+                        website's colors, featuring a golf hole,
+                        flagstick, rolling hills, sun, and golf ball.
+                    </em>
+                </figcaption>
             </figure>
-            <p class="ai-explanation">
-                AI prompt: Design an original lightweight
-                golf-themed SVG illustration with
-                coordinated colors.
-            </p>
+
         </section>
     </main>
 
@@ -532,6 +585,8 @@ footer a:hover {
                     link.removeAttribute("aria-current");
                 }
             });
+            const heading = document.querySelector("#" + selected + " h2");
+            document.title = "Golf | " + heading.textContent.trim();
         }
 
         links.forEach((link) => {
