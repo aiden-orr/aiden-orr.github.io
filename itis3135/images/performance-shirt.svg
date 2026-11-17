@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 460" role="img" aria-label="Anabolic Orangutan performance tee illustration">
+ <rect width="540" height="460" rx="28" fill="#f3eee1"/>
+ <circle cx="270" cy="230" r="185" fill="#e4dbc7"/>
+ <path d="M60 376 Q270 334 480 376" stroke="#d0bf9d" stroke-width="6" fill="none"/>
+ <path d="M160 105 L215 75 L245 102 L295 102 L325 75 L380 105 L415 185 L360 207 L342 170 L342 355 L198 355 L198 170 L180 207 L125 185 Z" fill="#245c35" stroke="#142a1b" stroke-width="9" stroke-linejoin="round"/><path d="M245 102 Q270 143 295 102" fill="none" stroke="#d4ad62" stroke-width="8"/>
+ <text x="270" y="414" font-family="Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle" fill="#173d25">PERFORMANCE TEE</text>
+ </svg>

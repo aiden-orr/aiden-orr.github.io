@@ -4,20 +4,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playing Cards | Anabolic Orangutan | ITIS3135</title>
+
+    <title>Aiden Orr's Anabolic Orangutan | ITIS3135 | Anabolic Orangutan Product Cards</title>
+
+    <link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="styles/default.css">
+
+    <style>
+        /* Classes are used to organize and style the product
+           cards consistently without changing the site layout. */
+
+        .product-intro {
+            text-align: center;
+            max-width: 750px;
+            margin: 20px auto 30px;
+            line-height: 1.6;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 1050px;
+            margin: 30px auto;
+        }
+
+        .product-card {
+            margin: 0;
+            padding: 20px;
+            background-color: #f1eee6;
+            border: 2px solid #245c35;
+            border-radius: 12px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .product-card img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card figcaption {
+            margin-top: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #173d25;
+        }
+
+        .product-card p {
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #245c35;
+            font-size: 1.2rem;
+        }
+
+        .product-card:hover {
+            background-color: #e5e9dd;
+            border-color: #173d25;
+        }
+
+        @media (max-width: 800px) {
+            .cards-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 550px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                padding: 15px;
+            }
+        }
+    </style>
+
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <!-- Div elements load the reusable common header and footer.
+         The data-include attributes identify which components
+         are inserted by the HTMLInclude script. -->
+
     <div data-include="components/header.html"></div>
 
     <main>
-        <h2>Anabolic Orangutan Playing Cards</h2>
-        <p>This page will display a collection of custom playing cards.</p>
+        <h2>Anabolic Orangutan Product Cards</h2>
+
+        <p class="product-intro">
+            Welcome to the Anabolic Orangutan Fitness Co.
+            product collection! Explore our athletic apparel
+            and gym accessories designed to help you train
+            harder, feel stronger, and unleash your inner beast.
+        </p>
+
+        <!-- The cards-container class creates a responsive grid.
+             Each product-card class applies consistent styling
+             to the figure, image, caption, and product details. -->
+
+        <section class="cards-container" aria-label="Fitness Products">
+
+            <figure class="product-card">
+                <img
+                    src="images/performance-shirt.svg"
+                    alt="Green Anabolic Orangutan performance workout shirt"
+                >
+                <figcaption>Performance T-Shirt</figcaption>
+
+                <p>
+                    A lightweight, breathable workout shirt
+                    designed for comfort during intense workouts.
+                </p>
+
+                <p class="product-price">$29.99</p>
+            </figure>
+
+            <figure class="product-card">
+                <img
+                    src="images/jungle-hoodie.svg"
+                    alt="Green Anabolic Orangutan athletic hoodie"
+                >
+                <figcaption>Jungle Hoodie</figcaption>
+
+                <p>
+                    Stay warm before and after your workouts
+                    with our comfortable athletic hoodie.
+                </p>
+
+                <p class="product-price">$54.99</p>
+            </figure>
+
+            <figure class="product-card">
+                <img
+                    src="images/training-shorts.svg"
+                    alt="Green Anabolic Orangutan athletic training shorts"
+                >
+                <figcaption>Training Shorts</figcaption>
+
+                <p>
+                    Flexible and lightweight shorts designed
+                    for lifting, running, and everyday training.
+                </p>
+
+                <p class="product-price">$34.99</p>
+            </figure>
+
+            <figure class="product-card">
+                <img
+                    src="images/lifting-belt.svg"
+                    alt="Green and gold Anabolic Orangutan lifting belt"
+                >
+                <figcaption>Weightlifting Belt</figcaption>
+
+                <p>
+                    A durable lifting belt designed to provide
+                    support during heavy strength training.
+                </p>
+
+                <p class="product-price">$49.99</p>
+            </figure>
+
+            <figure class="product-card">
+                <img
+                    src="images/lifting-straps.svg"
+                    alt="Green and gold Anabolic Orangutan lifting straps"
+                >
+                <figcaption>Lifting Straps</figcaption>
+
+                <p>
+                    Improve your grip during pulling exercises
+                    with our durable lifting straps.
+                </p>
+
+                <p class="product-price">$19.99</p>
+            </figure>
+
+            <figure class="product-card">
+                <img
+                    src="images/gym-bag.svg"
+                    alt="Green Anabolic Orangutan gym duffel bag"
+                >
+                <figcaption>Gym Bag</figcaption>
+
+                <p>
+                    Carry your workout clothes, accessories,
+                    and essentials in our spacious gym bag.
+                </p>
+
+                <p class="product-price">$44.99</p>
+            </figure>
+
+        </section>
     </main>
 
     <div data-include="components/footer.html"></div>
-    
+
     <script src="scripts/HTMLInclude.min.js"></script>
     <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
 </body>

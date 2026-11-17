@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 460" role="img" aria-label="Anabolic Orangutan gym bag illustration">
+ <rect width="540" height="460" rx="28" fill="#f3eee1"/>
+ <circle cx="270" cy="230" r="185" fill="#e4dbc7"/>
+ <path d="M60 376 Q270 334 480 376" stroke="#d0bf9d" stroke-width="6" fill="none"/>
+ <rect x="128" y="169" width="284" height="172" rx="35" fill="#245c35" stroke="#142a1b" stroke-width="9"/><path d="M213 171 C213 89 327 89 327 171" fill="none" stroke="#142a1b" stroke-width="20"/><path d="M213 171 C213 89 327 89 327 171" fill="none" stroke="#d4ad62" stroke-width="10"/><rect x="227" y="223" width="86" height="84" rx="12" fill="#1a4428" stroke="#d4ad62" stroke-width="6"/><path d="M270 234 L270 296" stroke="#d4ad62" stroke-width="6"/>
+ <text x="270" y="414" font-family="Arial, sans-serif" font-size="25" font-weight="700" text-anchor="middle" fill="#173d25">GYM BAG</text>
+ </svg>
