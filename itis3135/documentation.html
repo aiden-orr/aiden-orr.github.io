@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aiden Orr's Anabolic Orangutan | ITIS3135 | Anabolic Orangutan Training Guide</title>
+
+    <link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="styles/default.css">
+
+    <style>
+        /* Classes organize the documentation navigation,
+           training sections, and example tables. */
+
+        .documentation-intro {
+            max-width: 850px;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .documentation-image {
+            display: block;
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        .documentation-nav {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 20px;
+            background-color: #f1eee6;
+            border: 1px solid #245c35;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .documentation-nav ul {
+            line-height: 2;
+        }
+
+        .documentation-section {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: #f1eee6;
+            border: 1px solid #245c35;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .documentation-section p,
+        .documentation-section li {
+            line-height: 1.7;
+        }
+
+        .documentation-section ul,
+        .documentation-section ol {
+            padding-left: 25px;
+        }
+
+        .documentation-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        .documentation-section th,
+        .documentation-section td {
+            border: 1px solid #245c35;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .documentation-section th {
+            background-color: #245c35;
+            color: #fff; /* White text contrasts with dark green. */
+        }
+
+        .documentation-section code {
+            background-color: #e0e6dc;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .documentation-section,
+            .documentation-nav {
+                padding: 15px;
+            }
+
+            .documentation-section table {
+                font-size: 0.85rem;
+            }
+
+            .documentation-section th,
+            .documentation-section td {
+                padding: 6px;
+            }
+        }
+    </style>
+
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Div elements are used to load common header/footer components.
+         Classes style the guide and its navigation consistently.
+         Section IDs provide destinations for internal links. -->
+
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>Anabolic Orangutan Training Guide</h2>
+
+        <p class="documentation-intro">
+            Welcome to the Anabolic Orangutan Fitness Co.
+            beginner's strength-training guide. This documentation
+            covers the basics of building a workout routine,
+            selecting equipment, performing exercises, and recovering
+            properly. Lift Heavy. Go Bananas.
+        </p>
+
+        <img
+            class="documentation-image"
+            src="images/mascot.png"
+            alt="Anabolic Orangutan Fitness Co. mascot"
+        >
+
+        <!-- This navigation links to the ID of each guide section. -->
+        <nav class="documentation-nav" aria-label="Training Guide Sections">
+            <h3>Guide Contents</h3>
+            <ul>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#equipment">Essential Equipment</a></li>
+                <li><a href="#exercises">Fundamental Exercises</a></li>
+                <li><a href="#routine">Building a Workout Routine</a></li>
+                <li><a href="#recovery">Recovery and Safety</a></li>
+            </ul>
+        </nav>
+
+        <section class="documentation-section" id="getting-started">
+            <h3>Getting Started</h3>
+
+            <p>
+                Strength training uses resistance to challenge
+                your muscles. Over time, consistent training can
+                improve strength, muscular endurance, and overall
+                physical fitness.
+            </p>
+
+            <p>
+                Before starting a training program, identify your
+                goals. Some people want to build muscle, while
+                others focus on strength, endurance, or general health.
+            </p>
+
+            <h4>Beginner Recommendations</h4>
+
+            <ul>
+                <li>Start with manageable weights.</li>
+                <li>Learn proper exercise technique.</li>
+                <li>Train consistently rather than excessively.</li>
+                <li>Increase resistance gradually.</li>
+                <li>Allow enough time for recovery.</li>
+            </ul>
+        </section>
+
+        <section class="documentation-section" id="equipment">
+            <h3>Essential Equipment</h3>
+
+            <p>
+                You do not need an expensive gym setup to begin
+                strength training. A few basic pieces of equipment
+                can support a wide variety of workouts.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Dumbbells:</strong>
+                    Useful for presses, rows, curls, and other exercises.
+                </li>
+                <li>
+                    <strong>Barbells:</strong>
+                    Commonly used for compound strength exercises.
+                </li>
+                <li>
+                    <strong>Resistance Bands:</strong>
+                    Portable tools that provide adjustable resistance.
+                </li>
+                <li>
+                    <strong>Weightlifting Belts:</strong>
+                    Optional support equipment for certain heavy lifts.
+                </li>
+                <li>
+                    <strong>Lifting Straps:</strong>
+                    Accessories that can assist grip during pulling exercises.
+                </li>
+            </ul>
+
+            <p>
+                Visit our <a href="cards.html">Product Cards</a>
+                to explore the Anabolic Orangutan equipment collection.
+            </p>
+        </section>
+
+        <section class="documentation-section" id="exercises">
+            <h3>Fundamental Exercises</h3>
+
+            <p>
+                A balanced strength-training program includes
+                exercises targeting multiple muscle groups.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Exercise</th>
+                        <th scope="col">Primary Muscles</th>
+                        <th scope="col">Equipment</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Bench Press</td>
+                        <td>Chest, Shoulders, Triceps</td>
+                        <td>Barbell or Dumbbells</td>
+                    </tr>
+                    <tr>
+                        <td>Squat</td>
+                        <td>Quadriceps, Glutes</td>
+                        <td>Bodyweight or Weights</td>
+                    </tr>
+                    <tr>
+                        <td>Deadlift</td>
+                        <td>Posterior Chain</td>
+                        <td>Barbell or Dumbbells</td>
+                    </tr>
+                    <tr>
+                        <td>Pull-Up</td>
+                        <td>Back, Biceps</td>
+                        <td>Pull-Up Bar</td>
+                    </tr>
+                    <tr>
+                        <td>Shoulder Press</td>
+                        <td>Shoulders, Triceps</td>
+                        <td>Dumbbells or Barbell</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                Choose exercises that match your experience level
+                and abilities. Proper technique is more important
+                than lifting the heaviest possible weight.
+            </p>
+        </section>
+
+        <section class="documentation-section" id="routine">
+            <h3>Building a Workout Routine</h3>
+
+            <p>
+                A beginner may benefit from training two or three
+                days per week with a full-body workout routine.
+                Each session can include movements for the upper
+                body, lower body, and core.
+            </p>
+
+            <h4>Example Weekly Schedule</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Workout</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Full-Body Strength Training</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Rest or Light Activity</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Full-Body Strength Training</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Rest or Light Activity</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Full-Body Strength Training</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Optional Cardio or Recreation</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>Rest</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>How to Progress</h4>
+
+            <ol>
+                <li>Select a manageable starting weight.</li>
+                <li>Perform each exercise with controlled technique.</li>
+                <li>Track repetitions and weights.</li>
+                <li>Increase resistance gradually as strength improves.</li>
+                <li>Adjust your routine based on progress and recovery.</li>
+            </ol>
+
+            <p>
+                A common starting point is <code>2-3 sets</code>
+                of <code>8-12 repetitions</code> per exercise,
+                adjusted for your goals and experience.
+            </p>
+        </section>
+
+        <section class="documentation-section" id="recovery">
+            <h3>Recovery and Safety</h3>
+
+            <p>
+                Recovery is an important part of strength training.
+                Muscles adapt to exercise when training is combined
+                with adequate rest and nutrition.
+            </p>
+
+            <h4>Recovery Tips</h4>
+
+            <ul>
+                <li>Maintain a consistent sleep schedule.</li>
+                <li>Eat balanced meals that support your activity level.</li>
+                <li>Stay hydrated throughout the day.</li>
+                <li>Allow muscle groups time to recover.</li>
+                <li>Avoid increasing training intensity too quickly.</li>
+            </ul>
+
+            <p>
+                Stop an exercise if you experience sharp pain,
+                dizziness, or unusual discomfort. Consult a qualified
+                professional when necessary.
+            </p>
+
+            <p>
+                Remember the Anabolic Orangutan motto:
+                <strong>Go Ape. Get Strong.</strong>
+            </p>
+        </section>
+    </main>
+
+    <div data-include="components/footer.html"></div>
+
+    <script src="scripts/HTMLInclude.min.js"></script>
+    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
