@@ -4,20 +4,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory | Anabolic Orangutan | ITIS3135</title>
+
+    <title>Aiden Orr's Anabolic Orangutan | ITIS3135 | Anabolic Orangutan Product Inventory</title>
+
+    <link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="styles/default.css">
+
+    <style>
+        /* Classes are used to style the inventory table, product
+           statuses, and responsive layout consistently.
+           IDs are used to identify the inventory table for
+           accessibility and organization. */
+
+        .inventory-intro {
+            max-width: 800px;
+            margin: 20px auto 30px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .inventory-image {
+            display: block;
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            margin: 20px auto;
+        }
+
+        .inventory-section {
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .inventory-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        .inventory-table th,
+        .inventory-table td {
+            padding: 14px;
+            border: 1px solid #245c35;
+            text-align: left;
+        }
+
+        .inventory-table th {
+            background-color: #245c35;
+            color: #fff; /* White text provides contrast with the dark green header. */
+        }
+
+        .inventory-table tbody tr:nth-child(even) {
+            background-color: #edf0e7;
+        }
+
+        .inventory-table tbody tr:hover {
+            background-color: #dce8d5;
+        }
+
+        .inventory-table tfoot {
+            font-weight: bold;
+            background-color: #e0e6dc;
+        }
+
+        .status-available {
+            color: #245c35;
+            font-weight: bold;
+        }
+
+        .status-low {
+            color: #945000;
+            font-weight: bold;
+        }
+
+        .status-out {
+            color: #a02020;
+            font-weight: bold;
+        }
+
+        .inventory-notes {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #245c35;
+            border-radius: 10px;
+            background-color: #f1eee6;
+            box-sizing: border-box;
+        }
+
+        .inventory-notes p,
+        .inventory-notes li {
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .inventory-table {
+                font-size: 0.85rem;
+            }
+
+            .inventory-table th,
+            .inventory-table td {
+                padding: 8px;
+            }
+
+            .inventory-notes {
+                padding: 15px;
+            }
+        }
+    </style>
+
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <!-- Div elements load reusable header/footer components and
+         provide a scrolling container for the inventory table.
+         Classes style the table and product stock indicators.
+         The table ID identifies the inventory information. -->
+
     <div data-include="components/header.html"></div>
 
     <main>
-        <h2>Anabolic Orangutan Inventory</h2>
-        <p>This page will feature an inventory table displaying products and their details.</p>
+        <h2>Anabolic Orangutan Product Inventory</h2>
+
+        <p class="inventory-intro">
+            Welcome to the Anabolic Orangutan Fitness Co.
+            inventory management page. Our collection includes
+            workout apparel, lifting accessories, and gym essentials
+            designed for athletes of all experience levels.
+            Lift Heavy. Go Bananas.
+        </p>
+
+        <img
+            class="inventory-image"
+            src="images/mascot.png"
+            alt="Anabolic Orangutan Fitness Co. mascot"
+        >
+
+        <section class="inventory-section">
+            <h3>Current Product Inventory</h3>
+
+            <!-- This div enables horizontal scrolling on small screens
+                 so the entire inventory table remains accessible. -->
+            <div class="inventory-table-wrapper">
+                <table class="inventory-table" id="inventory">
+                    <caption>
+                        Anabolic Orangutan Fitness Co. Product Stock
+                    </caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Stock Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row">Performance T-Shirt</th>
+                            <td>Apparel</td>
+                            <td>$29.99</td>
+                            <td>75</td>
+                            <td class="status-available">In Stock</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Jungle Hoodie</th>
+                            <td>Apparel</td>
+                            <td>$54.99</td>
+                            <td>40</td>
+                            <td class="status-available">In Stock</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Training Shorts</th>
+                            <td>Apparel</td>
+                            <td>$34.99</td>
+                            <td>55</td>
+                            <td class="status-available">In Stock</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Weightlifting Belt</th>
+                            <td>Equipment</td>
+                            <td>$49.99</td>
+                            <td>12</td>
+                            <td class="status-low">Low Stock</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Lifting Straps</th>
+                            <td>Accessories</td>
+                            <td>$19.99</td>
+                            <td>90</td>
+                            <td class="status-available">In Stock</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">Gym Bag</th>
+                            <td>Accessories</td>
+                            <td>$44.99</td>
+                            <td>0</td>
+                            <td class="status-out">Out of Stock</td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th scope="row" colspan="3">
+                                Total Units Available
+                            </th>
+                            <td>272</td>
+                            <td>6 Products</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section class="inventory-notes">
+            <h3>Inventory Notes</h3>
+
+            <p>
+                Our inventory is regularly reviewed to help
+                ensure popular products remain available.
+                Stock quantities shown here are fictional
+                and created for this class project.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>In Stock:</strong>
+                    Products available for purchase.
+                </li>
+                <li>
+                    <strong>Low Stock:</strong>
+                    Products with limited remaining quantities.
+                </li>
+                <li>
+                    <strong>Out of Stock:</strong>
+                    Products currently unavailable.
+                </li>
+            </ul>
+
+            <p>
+                Visit our <a href="cards.html">Product Cards</a>
+                to view images and descriptions of our products.
+            </p>
+        </section>
     </main>
 
     <div data-include="components/footer.html"></div>
-    
+
     <script src="scripts/HTMLInclude.min.js"></script>
     <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
 </body>
