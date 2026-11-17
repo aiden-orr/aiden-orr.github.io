@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="styles/default.css">
 
     <style>
-        /* Classes are used to organize and style the product
-           cards consistently without changing the site layout. */
+        /* Classes organize product cards and provide consistent
+           styling while preserving the course website's design. */
 
         .product-intro {
             text-align: center;
@@ -40,13 +40,15 @@
         }
 
         .product-card img {
+            display: block;
             width: 100%;
             max-width: 250px;
             height: auto;
+            margin: 0 auto;
             border-radius: 8px;
         }
 
-        .product-card figcaption {
+        .product-card h3 {
             margin-top: 12px;
             font-size: 1.1rem;
             font-weight: bold;
@@ -90,9 +92,9 @@
 </head>
 
 <body>
-    <!-- Div elements load the reusable common header and footer.
-         The data-include attributes identify which components
-         are inserted by the HTMLInclude script. -->
+    <!-- Div elements are used to load reusable header and footer
+         components through the HTMLInclude script. Classes are used
+         to organize product cards and style them consistently. -->
 
     <div data-include="components/header.html"></div>
 
@@ -107,17 +109,18 @@
         </p>
 
         <!-- The cards-container class creates a responsive grid.
-             Each product-card class applies consistent styling
-             to the figure, image, caption, and product details. -->
+             Each product-card class identifies a separate product.
+             The product-price class highlights the product's price. -->
 
         <section class="cards-container" aria-label="Fitness Products">
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/performance-shirt.svg"
                     alt="Green Anabolic Orangutan performance workout shirt"
                 >
-                <figcaption>Performance T-Shirt</figcaption>
+
+                <h3>Performance T-Shirt</h3>
 
                 <p>
                     A lightweight, breathable workout shirt
@@ -125,14 +128,15 @@
                 </p>
 
                 <p class="product-price">$29.99</p>
-            </figure>
+            </article>
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/jungle-hoodie.svg"
                     alt="Green Anabolic Orangutan athletic hoodie"
                 >
-                <figcaption>Jungle Hoodie</figcaption>
+
+                <h3>Jungle Hoodie</h3>
 
                 <p>
                     Stay warm before and after your workouts
@@ -140,14 +144,15 @@
                 </p>
 
                 <p class="product-price">$54.99</p>
-            </figure>
+            </article>
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/training-shorts.svg"
                     alt="Green Anabolic Orangutan athletic training shorts"
                 >
-                <figcaption>Training Shorts</figcaption>
+
+                <h3>Training Shorts</h3>
 
                 <p>
                     Flexible and lightweight shorts designed
@@ -155,14 +160,15 @@
                 </p>
 
                 <p class="product-price">$34.99</p>
-            </figure>
+            </article>
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/lifting-belt.svg"
                     alt="Green and gold Anabolic Orangutan lifting belt"
                 >
-                <figcaption>Weightlifting Belt</figcaption>
+
+                <h3>Weightlifting Belt</h3>
 
                 <p>
                     A durable lifting belt designed to provide
@@ -170,14 +176,15 @@
                 </p>
 
                 <p class="product-price">$49.99</p>
-            </figure>
+            </article>
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/lifting-straps.svg"
                     alt="Green and gold Anabolic Orangutan lifting straps"
                 >
-                <figcaption>Lifting Straps</figcaption>
+
+                <h3>Lifting Straps</h3>
 
                 <p>
                     Improve your grip during pulling exercises
@@ -185,14 +192,15 @@
                 </p>
 
                 <p class="product-price">$19.99</p>
-            </figure>
+            </article>
 
-            <figure class="product-card">
+            <article class="product-card">
                 <img
                     src="images/gym-bag.svg"
                     alt="Green Anabolic Orangutan gym duffel bag"
                 >
-                <figcaption>Gym Bag</figcaption>
+
+                <h3>Gym Bag</h3>
 
                 <p>
                     Carry your workout clothes, accessories,
@@ -200,7 +208,7 @@
                 </p>
 
                 <p class="product-price">$44.99</p>
-            </figure>
+            </article>
 
         </section>
     </main>
