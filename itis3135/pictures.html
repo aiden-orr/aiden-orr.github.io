@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiden Orr's Anabolic Orangutan | ITIS3135 | Everything Pictures</title>
+    <link rel="icon" href="images/favicon.jpeg">
+    <link rel="stylesheet" href="styles/default.css">
+
+    <style>
+        .image-comparison {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 15px 0;
+        }
+
+        .image-comparison figure {
+            flex: 0 0 auto;
+            margin: 0;
+        }
+
+        .image-comparison img {
+            display: block;
+            object-fit: fill;
+        }
+
+        .image-comparison figcaption {
+            max-width: 250px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        article {
+            margin-bottom: 40px;
+        }
+
+        hr {
+            margin: 40px 0;
+        }
+    </style>
+
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- This div loads the shared site header. -->
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>Everything Pictures</h2>
+
+        <p>
+            This page demonstrates how different image formats, sizes, and
+            proportions affect the appearance and quality of photographs
+            on a website. I will compare original images with resized,
+            converted, and distorted versions to better understand how
+            images should be displayed on the web.
+        </p>
+
+        <section>
+            <h3>Image Manipulation with a Pexels Photograph</h3>
+
+            <p>
+                I selected a photograph of a blue sky with white clouds
+                stretching over a snowy landscape. The photograph was taken
+                by Şevval Kaynak and downloaded from
+                <a href="https://www.pexels.com/photo/10996310/"
+                   target="_blank" rel="noopener">Pexels</a>.
+                I chose this picture because its colors and details make
+                it useful for comparing image quality and formats.
+                The original file is a JPG image measuring 5184 × 3456
+                pixels with a file size of approximately 0.787 MB.
+            </p>
+
+            <article>
+                <h4>Original Image</h4>
+
+                <p>
+                    Click the links below to open the original photograph
+                    and its converted formats in a new tab.
+                </p>
+
+                <p>
+                    <a href="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels.jpg"
+                       target="_blank" rel="noopener">
+                        Original JPG
+                    </a>
+                    |
+                    <a href="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels.gif"
+                       target="_blank" rel="noopener">
+                        Original as GIF
+                    </a>
+                    |
+                    <a href="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-grayscale.jpg"
+                       target="_blank" rel="noopener">
+                        Grayscale
+                    </a>
+                    |
+                    <a href="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-black-white.png"
+                       target="_blank" rel="noopener">
+                        Black and White
+                    </a>
+                </p>
+
+                <figure>
+                    <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels.jpg"
+                         alt="Blue sky and white clouds above a snowy landscape"
+                         style="width: 80%; height: auto;">
+                    <figcaption>
+                        Original color photograph by Şevval Kaynak from
+                        Pexels, measuring 5184 × 3456 pixels.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Downsizing Images with CSS</h4>
+
+                <p>
+                    This image uses inline CSS to reduce its displayed
+                    size without changing the original file dimensions.
+                    Only the width is specified, allowing the browser
+                    to automatically calculate the correct height.
+                    The original proportions remain the same, but the
+                    original file still takes up the same storage space.
+                </p>
+
+                <figure>
+                    <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels.jpg"
+                         alt="Original landscape photograph displayed smaller using CSS"
+                         style="width: 20%; height: auto;">
+                    <figcaption>
+                        Original 5184 × 3456 JPG displayed at 20% of
+                        its containing element's width using CSS.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Proper Reduction of Image with Editor</h4>
+
+                <p>
+                    This photograph was reduced to 600 × 400 pixels
+                    using Python's Pillow image processing library.
+                    Unlike CSS resizing, this changes the image's
+                    actual pixel dimensions and reduces its storage
+                    requirements while maintaining the original
+                    3:2 aspect ratio.
+                </p>
+
+                <figure>
+                    <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                         alt="Properly resized landscape photograph"
+                         width="600"
+                         height="400"
+                         style="width: 600px; max-width: 100%; height: auto;">
+                    <figcaption>
+                        Photograph reduced to 600 × 400 pixels while
+                        maintaining its original proportions.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Improper Image Proportions with CSS</h4>
+
+                <p>
+                    These examples demonstrate what happens when an
+                    image's width or height is changed without maintaining
+                    its original aspect ratio. Each example keeps one
+                    dimension of the properly reduced photograph while
+                    decreasing the other dimension by approximately 33%.
+                    Separately resized image files were also saved
+                    for each of these dimensions.
+                </p>
+                <!-- This div and class group figures for side-by-side image comparisons. -->
+                <div class="image-comparison">
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                             alt="Landscape photograph narrowed by 33 percent"
+                             style="width: 402px; height: 400px; max-width: none;">
+                        <figcaption>
+                            Width reduced by 33% to 402 pixels.
+                            Height remains 400 pixels.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                             alt="Landscape photograph narrowed further"
+                             style="width: 269px; height: 400px; max-width: none;">
+                        <figcaption>
+                            Width reduced by another 33% to 269 pixels.
+                            Height remains 400 pixels.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                             alt="Landscape photograph shortened by 33 percent"
+                             style="width: 600px; height: 268px; max-width: none;">
+                        <figcaption>
+                            Height reduced by 33% to 268 pixels.
+                            Width remains 600 pixels.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                             alt="Landscape photograph shortened further"
+                             style="width: 600px; height: 180px; max-width: none;">
+                        <figcaption>
+                            Height reduced by another 33% to 180 pixels.
+                            Width remains 600 pixels.
+                        </figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article>
+                <h4>Improper Enlarging with CSS</h4>
+
+                <p>
+                    Both images are displayed at the same size.
+                    However, the second image has only 25% of the
+                    first image's width and height in its actual file.
+                    Enlarging it with CSS makes the loss of image
+                    quality more noticeable because the browser must
+                    enlarge the existing pixels.
+                </p>
+                <!-- This div and class group figures for side-by-side image comparisons. -->
+                <div class="image-comparison">
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-600x400.jpg"
+                             alt="Properly reduced landscape photograph"
+                             style="width: 600px; height: 400px; max-width: none;">
+                        <figcaption>
+                            Image saved at 600 × 400 pixels and
+                            displayed at its actual dimensions.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/blue-sky-white-clouds-10996310@sevval-kaynak_pexels-150x100.jpg"
+                             alt="Low resolution landscape photograph enlarged using CSS"
+                             style="width: 600px; height: 400px; max-width: none;">
+                        <figcaption>
+                            Image saved at 150 × 100 pixels and
+                            enlarged to 600 × 400 pixels using CSS.
+                        </figcaption>
+                    </figure>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Image Manipulation with a Personal Geometry Photograph</h3>
+
+            <p>
+                I took a photograph of myself holding a round white
+                dinner plate next to my face. I chose this photograph
+                because the circular plate and recognizable facial
+                proportions make it easy to identify when an image
+                becomes stretched or compressed. The original photograph
+                is a JPEG image measuring 2316 × 3088 pixels with
+                a file size of approximately 1.413 MB.
+            </p>
+
+            <article>
+                <h4>Original Image</h4>
+
+                <p>
+                    Click the links below to open the original photograph
+                    and its converted formats in a new tab.
+                </p>
+
+                <p>
+                    <a href="images/dinner-plate-next-to-head@aiden-orr.jpeg"
+                       target="_blank" rel="noopener">
+                        Original JPEG
+                    </a>
+                    |
+                    <a href="images/dinner-plate-next-to-head@aiden-orr.gif"
+                       target="_blank" rel="noopener">
+                        Original as GIF
+                    </a>
+                    |
+                    <a href="images/dinner-plate-next-to-head@aiden-orr-grayscale.jpg"
+                       target="_blank" rel="noopener">
+                        Grayscale
+                    </a>
+                    |
+                    <a href="images/dinner-plate-next-to-head@aiden-orr-black-white.png"
+                       target="_blank" rel="noopener">
+                        Black and White
+                    </a>
+                </p>
+
+                <figure>
+                    <img src="images/dinner-plate-next-to-head@aiden-orr.jpeg"
+                         alt="Aiden holding a round white dinner plate beside his face"
+                         style="width: 40%; height: auto;">
+                    <figcaption>
+                        Original personal photograph measuring
+                        2316 × 3088 pixels, showing a round dinner
+                        plate next to my face.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Downsizing Images with CSS</h4>
+
+                <p>
+                    This image uses inline CSS to reduce its displayed
+                    size without changing its original file dimensions.
+                    The browser automatically adjusts the height based
+                    on the specified width. The dinner plate remains
+                    circular because the original aspect ratio is
+                    maintained.
+                </p>
+
+                <figure>
+                    <img src="images/dinner-plate-next-to-head@aiden-orr.jpeg"
+                         alt="Personal photograph displayed smaller using CSS"
+                         style="width: 20%; height: auto;">
+                    <figcaption>
+                        Original 2316 × 3088 JPEG displayed at 20%
+                        of its containing element's width using CSS.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Proper Reduction of Image with Editor</h4>
+
+                <p>
+                    This photograph was reduced to 600 × 800 pixels
+                    using Python's Pillow image processing library.
+                    The original 3:4 aspect ratio was maintained
+                    so that the dinner plate and my face remain
+                    proportional. Unlike CSS resizing, this process
+                    reduces the actual number of pixels in the file.
+                </p>
+
+                <figure>
+                    <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                         alt="Properly reduced personal photograph"
+                         width="600"
+                         height="800"
+                         style="width: 600px; max-width: 100%; height: auto;">
+                    <figcaption>
+                        Personal photograph reduced to 600 × 800
+                        pixels while maintaining its original proportions.
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article>
+                <h4>Improper Image Proportions with CSS</h4>
+
+                <p>
+                    These examples demonstrate how changing an image's
+                    width or height without maintaining its aspect ratio
+                    can distort recognizable objects. The dinner plate
+                    becomes oval-shaped, and my facial proportions
+                    become noticeably different. Separately resized
+                    image files were also saved for each of these
+                    dimensions.
+                </p>
+                <!-- This div and class group figures for side-by-side image comparisons. -->
+                <div class="image-comparison">
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                             alt="Personal photograph narrowed by 33 percent"
+                             style="width: 402px; height: 800px; max-width: none;">
+                        <figcaption>
+                            Width reduced by 33% to 402 pixels.
+                            Height remains 800 pixels. The dinner
+                            plate appears narrower.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                             alt="Personal photograph narrowed further"
+                             style="width: 269px; height: 800px; max-width: none;">
+                        <figcaption>
+                            Width reduced by another 33% to 269 pixels.
+                            Height remains 800 pixels. The dinner plate
+                            and my face appear extremely narrow.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                             alt="Personal photograph shortened by 33 percent"
+                             style="width: 600px; height: 536px; max-width: none;">
+                        <figcaption>
+                            Height reduced by 33% to 536 pixels.
+                            Width remains 600 pixels. The dinner
+                            plate appears wider.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                             alt="Personal photograph shortened further"
+                             style="width: 600px; height: 359px; max-width: none;">
+                        <figcaption>
+                            Height reduced by another 33% to 359 pixels.
+                            Width remains 600 pixels. The dinner plate
+                            and my face appear extremely compressed.
+                        </figcaption>
+                    </figure>
+                </div>
+            </article>
+
+            <article>
+                <h4>Improper Enlarging with CSS</h4>
+
+                <p>
+                    Both photographs below are displayed at 600 × 800
+                    pixels. However, the second photograph was saved
+                    at only 150 × 200 pixels, which is 25% of the
+                    original reduced image's width and height.
+                    Enlarging the smaller photograph using CSS
+                    makes it appear blurrier and less detailed.
+                </p>
+                <!-- This div and class group figures for side-by-side image comparisons. -->
+                <div class="image-comparison">
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-600x800.jpg"
+                             alt="Properly reduced personal photograph"
+                             style="width: 600px; height: 800px; max-width: none;">
+                        <figcaption>
+                            Photograph saved at 600 × 800 pixels
+                            and displayed at its actual dimensions.
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="images/dinner-plate-next-to-head@aiden-orr-150x200.jpg"
+                             alt="Low resolution personal photograph enlarged using CSS"
+                             style="width: 600px; height: 800px; max-width: none;">
+                        <figcaption>
+                            Photograph saved at 150 × 200 pixels
+                            and enlarged to 600 × 800 pixels using CSS.
+                        </figcaption>
+                    </figure>
+                </div>
+            </article>
+        </section>
+    </main>
+    <!-- This div loads the course site footer --->
+    <div data-include="components/footer.html"></div>
+
+    <script src="scripts/HTMLInclude.min.js"></script>
+    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
