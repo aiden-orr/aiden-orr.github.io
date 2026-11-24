@@ -7,11 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const imageInput = document.getElementById("img");
     const imagePreview = document.getElementById("image-preview");
 
+    const output = document.getElementById("generated-output");
+    const outputHeading = document.getElementById("output-heading");
+    const outputCode = document.getElementById("output-code");
+
     const defaultImage = "images/aiden-orr.jpeg";
     const originalCourses = courses.innerHTML;
 
     let selectedImage = defaultImage;
-    let courseCount = 5;
+    let courseCount = courses.children.length;
+    let exportRequest = 0;
 
     const footerFields = [
         ["CLT Web", "cltWeb"],
@@ -27,13 +32,24 @@ document.addEventListener("DOMContentLoaded", function () {
         return document.getElementById(id).value.trim();
     }
 
-    // Prevents user-entered text from being interpreted as HTML.
+    // Escapes characters that have special meanings in HTML.
     function escapeHTML(value) {
-        const element = document.createElement("div");
-        element.textContent = value;
-        return element.innerHTML
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#39;");
+    }
+
+    // Escapes characters that have special meanings in XML.
+    function escapeXML(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&apos;");
     }
 
     // Allows only HTTP and HTTPS links.
@@ -73,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <label for="reasonForTaking-${courseCount}">
                 Reason for Taking:
             </label>
+
             <textarea id="reasonForTaking-${courseCount}"
                       name="reasonForTaking"
                       placeholder="Reason for taking this course"
@@ -95,71 +112,90 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Loads and previews a user's uploaded photograph.
+    // Releases previously uploaded image URLs.
+    function releaseImage() {
+        if (selectedImage.startsWith("blob:")) {
+            URL.revokeObjectURL(selectedImage);
+        }
+    }
+
+    // Loads and previews an uploaded photograph.
     imageInput.addEventListener("change", function () {
         const file = imageInput.files[0];
+
+        releaseImage();
 
         if (!file) {
             selectedImage = defaultImage;
             imagePreview.src = defaultImage;
+            imagePreview.hidden = false;
             return;
         }
 
         if (!file.type.startsWith("image/")) {
             alert("Please select a valid image file.");
+
             imageInput.value = "";
             selectedImage = defaultImage;
             imagePreview.src = defaultImage;
-            return;
-        }
+            imagePreview.hidden = false;
 
-        if (selectedImage.startsWith("blob:")) {
-            URL.revokeObjectURL(selectedImage);
+            return;
         }
 
         selectedImage = URL.createObjectURL(file);
         imagePreview.src = selectedImage;
+        imagePreview.hidden = false;
     });
 
-    // Clears all form fields.
+    // Updates the preview alternative text when the field changes.
+    document.getElementById("pictureAlt").addEventListener("input", function () {
+        imagePreview.alt = getValue("pictureAlt");
+    });
+
+    // Removes previously generated source code.
+    function clearGeneratedCode() {
+        exportRequest++;
+        output.hidden = true;
+        outputCode.value = "";
+        outputHeading.textContent = "Generated Code";
+    }
+
+    // Clears every form field.
     clearButton.addEventListener("click", function () {
         form.querySelectorAll("input, textarea").forEach(function (field) {
             field.value = "";
         });
 
-        if (selectedImage.startsWith("blob:")) {
-            URL.revokeObjectURL(selectedImage);
-        }
+        releaseImage();
 
         selectedImage = "";
         imagePreview.hidden = true;
         imagePreview.removeAttribute("src");
+
+        clearGeneratedCode();
     });
 
     // Restores the original form values and courses.
     form.addEventListener("reset", function () {
         courses.innerHTML = originalCourses;
-        courseCount = 5;
+        courseCount = courses.children.length;
 
-        if (selectedImage.startsWith("blob:")) {
-            URL.revokeObjectURL(selectedImage);
-        }
+        releaseImage();
 
         selectedImage = defaultImage;
         imagePreview.src = defaultImage;
+        imagePreview.alt = "Photo of Aiden Orr";
         imagePreview.hidden = false;
+
+        clearGeneratedCode();
     });
 
-    // Makes the image preview visible after selecting a new photograph.
-    imageInput.addEventListener("change", function () {
-        imagePreview.hidden = false;
-    });
-
-    // Collects information using the assignment's required data model.
+    // Collects information using the required assignment data model.
     function collectData() {
         const courseData = [];
 
-        document.querySelectorAll(".course-entry").forEach(function (course) {
+        courses.querySelectorAll(".course-entry").forEach(function (course) {
             courseData.push({
                 department: course.querySelector(
                     '[name="department"]'
@@ -184,11 +220,14 @@ document.addEventListener("DOMContentLoaded", function () {
             middleName: getValue("middleName"),
             nickname: getValue("nickname"),
             lastName: getValue("lastName"),
+
             acknowledgment: getValue("acknowledgment"),
             acknowledgmentDate: getValue("acknowledgmentDate"),
+
             prettyNameDivider: getValue("prettyNameDivider"),
             adjectives: getValue("adjectives"),
             animal: getValue("animal"),
+
             img: selectedImage,
             pictureAlt: getValue("pictureAlt"),
             caption: getValue("caption"),
@@ -267,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        footerNav.replaceChildren();
+        footerNav.innerHTML = "";
 
         footerLinks.forEach(function (link, index) {
             const anchor = document.createElement("a");
@@ -283,8 +322,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Generates the introduction using the original page's layout.
-    function generateIntroduction(data) {
+    // Creates the introduction content used by Submit and Generate HTML.
+    function buildIntroduction(data) {
         const fullName = [
             data.firstName,
             data.middleName,
@@ -301,98 +340,97 @@ document.addEventListener("DOMContentLoaded", function () {
         const mascot = `${data.adjectives} ${data.animal}`;
 
         const courseHTML = data.courses.map(function (course) {
-            return `
-                <li>
-                    <strong>${escapeHTML(course.department)}
-                    ${escapeHTML(course.courseNumber)} -
-                    ${escapeHTML(course.courseTitle)}:</strong>
-                    ${escapeHTML(course.reasonForTaking)}
-                </li>
-            `;
-        }).join("");
+            return `            <li>
+                <strong>${escapeHTML(course.department)} ${escapeHTML(course.courseNumber)} - ${escapeHTML(course.courseTitle)}:</strong>
+                ${escapeHTML(course.reasonForTaking)}
+            </li>`;
+        }).join("\n");
 
         const funnyHTML = data.funnyItem
-            ? `<li><strong>Funny Thing:</strong>
-               ${escapeHTML(data.funnyItem)}</li>`
+            ? `        <li>
+            <strong>Funny Thing:</strong>
+            ${escapeHTML(data.funnyItem)}
+        </li>\n`
             : "";
 
         const shareHTML = data.somethingToShare
-            ? `<li><strong>Something Interesting About Me:</strong>
-               ${escapeHTML(data.somethingToShare)}</li>`
+            ? `        <li>
+            <strong>Something Interesting About Me:</strong>
+            ${escapeHTML(data.somethingToShare)}
+        </li>\n`
             : "";
 
+        return `<h2>Introduction Form</h2>
+
+    <h6>${escapeHTML(prettyName)} ${escapeHTML(data.prettyNameDivider)} ${escapeHTML(mascot)}</h6>
+
+    <h3>${escapeHTML(fullName)}</h3>
+
+    <figure>
+        <img src="${escapeHTML(data.img)}"
+             alt="${escapeHTML(data.pictureAlt)}">
+        <figcaption>${escapeHTML(data.caption)}</figcaption>
+    </figure>
+
+    <p>${escapeHTML(data.personalInfo.statement)}</p>
+
+    <ul>
+        <li>
+            <strong>Personal Background:</strong>
+            ${escapeHTML(data.personalInfo.personalBackground)}
+        </li>
+
+        <li>
+            <strong>Academic Background:</strong>
+            ${escapeHTML(data.personalInfo.academicBackground)}
+        </li>
+
+        <li>
+            <strong>Professional Background:</strong>
+            ${escapeHTML(data.personalInfo.professionalBackground)}
+        </li>
+
+        <li>
+            <strong>Primary Work Computer:</strong>
+            ${escapeHTML(data.personalInfo.primaryWorkComputer)}
+        </li>
+
+        <li>
+            <strong>Primary Work Location:</strong>
+            ${escapeHTML(data.personalInfo.primaryWorkLocation)}
+        </li>
+
+        <li>
+            <strong>Alternate Computer:</strong>
+            ${escapeHTML(data.personalInfo.alternateComputerLocation)}
+        </li>
+
+        <li>
+            <strong>Courses I'm taking and why:</strong>
+            <ol>
+${courseHTML}
+            </ol>
+        </li>
+
+${funnyHTML}${shareHTML}    </ul>
+
+    <blockquote>
+        <p><em>"${escapeHTML(data.quote)}"</em></p>
+        <p>- ${escapeHTML(data.quoteAuthor)}</p>
+    </blockquote>
+
+    <p>
+        ${escapeHTML(data.acknowledgment)}
+        - ${escapeHTML(data.acknowledgmentDate)}
+    </p>`;
+    }
+
+    // Generates the displayed introduction when Submit is clicked.
+    function generateIntroduction(data) {
+        exportRequest++;
+
         main.innerHTML = `
-            <h2>Introduction Form</h2>
-
-            <h6>
-                ${escapeHTML(prettyName)}
-                ${escapeHTML(data.prettyNameDivider)}
-                ${escapeHTML(mascot)}
-            </h6>
-
-            <h3>${escapeHTML(fullName)}</h3>
-
-            <figure>
-                <img src="${escapeHTML(data.img)}"
-                     alt="${escapeHTML(data.pictureAlt)}">
-                <figcaption>
-                    ${escapeHTML(data.caption)}
-                </figcaption>
-            </figure>
-
-            <p>${escapeHTML(data.personalInfo.statement)}</p>
-
-            <ul>
-                <li>
-                    <strong>Personal Background:</strong>
-                    ${escapeHTML(data.personalInfo.personalBackground)}
-                </li>
-
-                <li>
-                    <strong>Academic Background:</strong>
-                    ${escapeHTML(data.personalInfo.academicBackground)}
-                </li>
-
-                <li>
-                    <strong>Professional Background:</strong>
-                    ${escapeHTML(data.personalInfo.professionalBackground)}
-                </li>
-
-                <li>
-                    <strong>Primary Work Computer:</strong>
-                    ${escapeHTML(data.personalInfo.primaryWorkComputer)}
-                </li>
-
-                <li>
-                    <strong>Primary Work Location:</strong>
-                    ${escapeHTML(data.personalInfo.primaryWorkLocation)}
-                </li>
-
-                <li>
-                    <strong>Alternate Computer:</strong>
-                    ${escapeHTML(data.personalInfo.alternateComputerLocation)}
-                </li>
-
-                <li>
-                    <strong>Courses I'm taking and why:</strong>
-                    <ol>
-                        ${courseHTML}
-                    </ol>
-                </li>
-
-                ${funnyHTML}
-                ${shareHTML}
-            </ul>
-
-            <blockquote>
-                <p><em>"${escapeHTML(data.quote)}"</em></p>
-                <p>- ${escapeHTML(data.quoteAuthor)}</p>
-            </blockquote>
-
-            <p>
-                ${escapeHTML(data.acknowledgment)}
-                - ${escapeHTML(data.acknowledgmentDate)}
-            </p>
+            ${buildIntroduction(data)}
 
             <p>
                 <a href="introduction_form.html">Reset Form</a>
@@ -404,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo(0, 0);
     }
 
-    // Prevents normal submission and generates the introduction.
+    // Prevents normal submission and displays the introduction.
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -415,5 +453,148 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = collectData();
 
         generateIntroduction(data);
+    });
+
+    // Displays generated source code without removing the form.
+    function displayCode(format, code) {
+        outputHeading.textContent = "Generated " + format;
+        outputCode.value = code;
+        output.hidden = false;
+
+        output.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    // Generates HTML using the current form information.
+    function generateHTML(data) {
+        const footerHTML = data.footerLinks.map(function (link) {
+            return `<a href="${escapeHTML(link.url)}">${escapeHTML(link.label)}</a>`;
+        }).join(" |\n        ");
+
+        return `<main>
+    ${buildIntroduction(data)}
+</main>
+
+<footer>
+    <nav>
+        ${footerHTML}
+    </nav>
+
+    <p>
+        Designed by <a href="../aidenorrdesignco.com/">Aiden Orr Design Co.</a> &copy;2026
+    </p>
+
+    <p>
+        Certified in
+        <a href="https://www.freecodecamp.org/certification/aiden_orruncc/responsive-web-design-v9">Responsive Web Design</a>
+    </p>
+
+    <p><em>"Strong code, stronger results."</em></p>
+</footer>`;
+    }
+
+    // Converts the introduction data into formatted XML.
+    function convertToXML(value, tag, level) {
+        const indent = "    ".repeat(level);
+
+        if (Array.isArray(value)) {
+            let itemTag = "item";
+
+            if (tag === "courses") {
+                itemTag = "course";
+            } else if (tag === "footerLinks") {
+                itemTag = "link";
+            }
+
+            const items = value.map(function (item) {
+                return convertToXML(item, itemTag, level + 1);
+            }).join("\n");
+
+            return `${indent}<${tag}>\n${items}\n${indent}</${tag}>`;
+        }
+
+        if (typeof value === "object" && value !== null) {
+            const children = Object.keys(value).map(function (key) {
+                return convertToXML(value[key], key, level + 1);
+            }).join("\n");
+
+            return `${indent}<${tag}>\n${children}\n${indent}</${tag}>`;
+        }
+
+        return `${indent}<${tag}>${escapeXML(value)}</${tag}>`;
+    }
+
+    // Embeds uploaded photographs in the generated source code.
+    function collectExportData(callback) {
+        const data = collectData();
+        const file = imageInput.files[0];
+
+        exportRequest++;
+        const currentRequest = exportRequest;
+
+        if (!file) {
+            callback(data);
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function () {
+            if (currentRequest !== exportRequest) {
+                return;
+            }
+
+            data.img = reader.result;
+            callback(data);
+        });
+
+        reader.addEventListener("error", function () {
+            if (currentRequest === exportRequest) {
+                alert("Unable to read the uploaded photograph.");
+            }
+        });
+
+        reader.readAsDataURL(file);
+    }
+
+    // Generates HTML source code when Generate HTML is clicked.
+    document.getElementById("generate-html").addEventListener("click", function () {
+        if (!validateForm()) {
+            return;
+        }
+
+        collectExportData(function (data) {
+            const html = generateHTML(data);
+
+            displayCode("HTML", html);
+        });
+    });
+
+    // Generates formatted JSON when Generate JSON is clicked.
+    document.getElementById("generate-json").addEventListener("click", function () {
+        if (!validateForm()) {
+            return;
+        }
+
+        collectExportData(function (data) {
+            const json = JSON.stringify(data, null, 4);
+
+            displayCode("JSON", json);
+        });
+    });
+
+    // Generates formatted XML when Generate XML is clicked.
+    document.getElementById("generate-xml").addEventListener("click", function () {
+        if (!validateForm()) {
+            return;
+        }
+
+        collectExportData(function (data) {
+            const xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+                + convertToXML(data, "introduction", 0);
+
+            displayCode("XML", xml);
+        });
     });
 });

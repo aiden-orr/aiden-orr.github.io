@@ -64,12 +64,34 @@
             border-radius: 5px;
         }
 
-        /* This ID controls the size of the image preview. */
+        /* This ID controls the size of the uploaded image preview. */
         #image-preview {
             display: block;
             max-width: 200px;
             height: auto;
             margin: 15px auto;
+        }
+
+        /* These IDs control the generated source code section and textarea. */
+        #generated-output {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: left;
+        }
+
+        #output-code {
+            width: 100%;
+            min-height: 400px;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        [hidden] {
+            display: none !important;
         }
 
         @media (max-width: 600px) {
@@ -100,6 +122,8 @@
             Complete the form below to create your own introduction page.
             The fields are prefilled with my introduction information,
             but you may change them to create your own introduction.
+            You may also generate HTML, JSON, and XML representations
+            of your information.
         </p>
 
         <!-- Form and input IDs connect labels to fields and allow JavaScript to process the form. -->
@@ -501,12 +525,27 @@
                        required>
             </fieldset>
 
-            <!-- The clear button ID allows JavaScript to clear the form. -->
+            <!-- These button IDs allow JavaScript to clear the form and generate source code. -->
             <button type="submit">Submit</button>
             <button type="reset">Reset</button>
             <button type="button" id="clear">Clear</button>
 
+            <button type="button" id="generate-html">Generate HTML</button>
+            <button type="button" id="generate-json">Generate JSON</button>
+            <button type="button" id="generate-xml">Generate XML</button>
+
         </form>
+
+        <!-- These IDs allow JavaScript to display and update generated source code. -->
+        <section id="generated-output" hidden>
+            <h3 id="output-heading">Generated Code</h3>
+
+            <label for="output-code">Generated Source Code:</label>
+            <textarea id="output-code"
+                      rows="25"
+                      readonly
+                      spellcheck="false"></textarea>
+        </section>
     </main>
 
     <!-- This div loads the shared site footer. -->
