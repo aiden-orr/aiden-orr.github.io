@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiden Orr's Anabolic Orangutan | ITIS3135 | Introduction Form</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <link rel="icon" href="images/favicon.jpeg" type="image/jpeg">
+
+    <style>
+        form {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        fieldset {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input:not([type="file"]),
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px 10px 0;
+            font: inherit;
+            cursor: pointer;
+            border: 1px solid #888;
+            border-radius: 5px;
+        }
+
+        /* This class groups the fields for each individual course. */
+        .course-entry {
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #888;
+            border-radius: 5px;
+        }
+
+        /* This ID controls the size of the image preview. */
+        #image-preview {
+            display: block;
+            max-width: 200px;
+            height: auto;
+            margin: 15px auto;
+        }
+
+        @media (max-width: 600px) {
+            fieldset {
+                padding: 10px;
+            }
+
+            button {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+
+    
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- This div loads the shared site header. -->
+    <div data-include="components/header.html"></div>
+
+    <main>
+        <h2>Introduction Form</h2>
+
+        <h3>Please Submit the Form Below</h3>
+
+        <p>
+            Complete the form below to create your own introduction page.
+            The fields are prefilled with my introduction information,
+            but you may change them to create your own introduction.
+        </p>
+
+        <!-- Form and input IDs connect labels to fields and allow JavaScript to process the form. -->
+        <form id="form">
+
+            <fieldset>
+                <legend>Name and Acknowledgment</legend>
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName"
+                       value="Aiden"
+                       placeholder="Enter your first name"
+                       required>
+
+                <label for="middleName">Middle Name or Initial (Optional):</label>
+                <input type="text" id="middleName" name="middleName"
+                       value=""
+                       placeholder="Enter your middle name">
+
+                <label for="nickname">Nickname (Optional):</label>
+                <input type="text" id="nickname" name="nickname"
+                       value="Moo"
+                       placeholder="Enter your nickname">
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName"
+                       value="Orr"
+                       placeholder="Enter your last name"
+                       required>
+
+                <label for="acknowledgment">Acknowledgment Statement:</label>
+                <textarea id="acknowledgment" name="acknowledgment"
+                          placeholder="Enter your acknowledgment statement"
+                          required>I understand that this is a public document, and I won't put anything here I wouldn't want anyone to see.</textarea>
+
+                <label for="acknowledgmentDate">Acknowledgment Date:</label>
+                <input type="text" id="acknowledgmentDate"
+                       name="acknowledgmentDate"
+                       value="8/24/26"
+                       placeholder="MM/DD/YY"
+                       required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Mascot Information</legend>
+
+                <label for="adjectives">Mascot Adjective:</label>
+                <input type="text" id="adjectives" name="adjectives"
+                       value="Anabolic"
+                       placeholder="Enter mascot adjective"
+                       required>
+
+                <label for="animal">Mascot Animal:</label>
+                <input type="text" id="animal" name="animal"
+                       value="Orangutan"
+                       placeholder="Enter mascot animal"
+                       required>
+
+                <label for="prettyNameDivider">Name Divider:</label>
+                <input type="text" id="prettyNameDivider"
+                       name="prettyNameDivider"
+                       value="|"
+                       placeholder="Enter a divider"
+                       required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Picture Information</legend>
+
+                <p>
+                    My original introduction photograph is used by default.
+                    Upload another picture to replace it.
+                </p>
+
+                <!-- This image ID allows JavaScript to preview uploaded photographs. -->
+                <img id="image-preview"
+                     src="images/aiden-orr.jpeg"
+                     alt="Photo of Aiden Orr">
+
+                <label for="img">Upload a Picture:</label>
+                <input type="file" id="img" name="img"
+                       accept="image/*">
+
+                <label for="pictureAlt">Picture Alternative Text:</label>
+                <input type="text" id="pictureAlt" name="pictureAlt"
+                       value="Photo of Aiden Orr"
+                       placeholder="Describe your photograph"
+                       required>
+
+                <label for="caption">Picture Caption:</label>
+                <input type="text" id="caption" name="caption"
+                       value="Aiden Orr"
+                       placeholder="Enter picture caption"
+                       required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <label for="statement">Personal Statement:</label>
+                <textarea id="statement" name="statement"
+                          placeholder="Introduce yourself"
+                          required>Hello! My name is Aiden Orr. I am a Computer Science student at UNC Charlotte concentrating in Data Science with a minor in Mathematics.</textarea>
+
+                <label for="personalBackground">Personal Background:</label>
+                <textarea id="personalBackground"
+                          name="personalBackground"
+                          placeholder="Describe your personal background"
+                          required>I am from the Charlotte, North Carolina area.</textarea>
+
+                <label for="academicBackground">Academic Background:</label>
+                <textarea id="academicBackground"
+                          name="academicBackground"
+                          placeholder="Describe your academic background"
+                          required>I am pursuing a Bachelor of Science in Computer Science with a concentration in Data Science and a minor in Mathematics.</textarea>
+
+                <label for="professionalBackground">Professional Background:</label>
+                <textarea id="professionalBackground"
+                          name="professionalBackground"
+                          placeholder="Describe your professional background"
+                          required>I have experience working in fulfillment and inventory management and am interested in pursuing a career in data and software development.</textarea>
+
+                <label for="primaryWorkComputer">Primary Work Computer:</label>
+                <textarea id="primaryWorkComputer"
+                          name="primaryWorkComputer"
+                          placeholder="Describe your primary computer"
+                          required>MacBook running macOS.</textarea>
+
+                <label for="primaryWorkLocation">Primary Work Location:</label>
+                <textarea id="primaryWorkLocation"
+                          name="primaryWorkLocation"
+                          placeholder="Describe your primary work location"
+                          required>Charlotte, North Carolina.</textarea>
+
+                <label for="alternateComputerLocation">Alternate Computer:</label>
+                <textarea id="alternateComputerLocation"
+                          name="alternateComputerLocation"
+                          placeholder="Describe your alternate computer"
+                          required>Windows PC.</textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Courses I Am Taking</legend>
+
+                <p>
+                    Add or remove courses using the buttons below.
+                </p>
+
+                <!-- This div ID allows JavaScript to manage the course entries. -->
+                <div id="courses">
+
+                    <!-- The course-entry class groups each course's inputs. -->
+                    <div class="course-entry">
+
+                        <label for="department-1">Department:</label>
+                        <input type="text" id="department-1"
+                               name="department"
+                               value="ITIS"
+                               placeholder="Department"
+                               required>
+
+                        <label for="courseNumber-1">Course Number:</label>
+                        <input type="text" id="courseNumber-1"
+                               name="courseNumber"
+                               value="3135"
+                               placeholder="Course number"
+                               required>
+
+                        <label for="courseTitle-1">Course Title:</label>
+                        <input type="text" id="courseTitle-1"
+                               name="courseTitle"
+                               value="Front-End Web Application Development"
+                               placeholder="Course title"
+                               required>
+
+                        <label for="reasonForTaking-1">Reason for Taking:</label>
+                        <textarea id="reasonForTaking-1"
+                                  name="reasonForTaking"
+                                  placeholder="Reason for taking this course"
+                                  required>To learn web development.</textarea>
+
+                        <button type="button" class="delete-course">
+                            Delete Course
+                        </button>
+                    </div>
+
+                    <div class="course-entry">
+
+                        <label for="department-2">Department:</label>
+                        <input type="text" id="department-2"
+                               name="department"
+                               value="ITCS"
+                               placeholder="Department"
+                               required>
+
+                        <label for="courseNumber-2">Course Number:</label>
+                        <input type="text" id="courseNumber-2"
+                               name="courseNumber"
+                               value="3153"
+                               placeholder="Course number"
+                               required>
+
+                        <label for="courseTitle-2">Course Title:</label>
+                        <input type="text" id="courseTitle-2"
+                               name="courseTitle"
+                               value="Introduction to Artificial Intelligence"
+                               placeholder="Course title"
+                               required>
+
+                        <label for="reasonForTaking-2">Reason for Taking:</label>
+                        <textarea id="reasonForTaking-2"
+                                  name="reasonForTaking"
+                                  placeholder="Reason for taking this course"
+                                  required>To learn about AI.</textarea>
+
+                        <button type="button" class="delete-course">
+                            Delete Course
+                        </button>
+                    </div>
+
+                    <div class="course-entry">
+
+                        <label for="department-3">Department:</label>
+                        <input type="text" id="department-3"
+                               name="department"
+                               value="ITCS"
+                               placeholder="Department"
+                               required>
+
+                        <label for="courseNumber-3">Course Number:</label>
+                        <input type="text" id="courseNumber-3"
+                               name="courseNumber"
+                               value="3156"
+                               placeholder="Course number"
+                               required>
+
+                        <label for="courseTitle-3">Course Title:</label>
+                        <input type="text" id="courseTitle-3"
+                               name="courseTitle"
+                               value="Introduction to Machine Learning"
+                               placeholder="Course title"
+                               required>
+
+                        <label for="reasonForTaking-3">Reason for Taking:</label>
+                        <textarea id="reasonForTaking-3"
+                                  name="reasonForTaking"
+                                  placeholder="Reason for taking this course"
+                                  required>To learn machine learning.</textarea>
+
+                        <button type="button" class="delete-course">
+                            Delete Course
+                        </button>
+                    </div>
+
+                    <div class="course-entry">
+
+                        <label for="department-4">Department:</label>
+                        <input type="text" id="department-4"
+                               name="department"
+                               value="MATH"
+                               placeholder="Department"
+                               required>
+
+                        <label for="courseNumber-4">Course Number:</label>
+                        <input type="text" id="courseNumber-4"
+                               name="courseNumber"
+                               value="3180"
+                               placeholder="Course number"
+                               required>
+
+                        <label for="courseTitle-4">Course Title:</label>
+                        <input type="text" id="courseTitle-4"
+                               name="courseTitle"
+                               value="Predictive Analytics"
+                               placeholder="Course title"
+                               required>
+
+                        <label for="reasonForTaking-4">Reason for Taking:</label>
+                        <textarea id="reasonForTaking-4"
+                                  name="reasonForTaking"
+                                  placeholder="Reason for taking this course"
+                                  required>To improve my data analysis skills.</textarea>
+
+                        <button type="button" class="delete-course">
+                            Delete Course
+                        </button>
+                    </div>
+
+                    <div class="course-entry">
+
+                        <label for="department-5">Department:</label>
+                        <input type="text" id="department-5"
+                               name="department"
+                               value="ITSC"
+                               placeholder="Department"
+                               required>
+
+                        <label for="courseNumber-5">Course Number:</label>
+                        <input type="text" id="courseNumber-5"
+                               name="courseNumber"
+                               value="4155"
+                               placeholder="Course number"
+                               required>
+
+                        <label for="courseTitle-5">Course Title:</label>
+                        <input type="text" id="courseTitle-5"
+                               name="courseTitle"
+                               value="Software Development Projects"
+                               placeholder="Course title"
+                               required>
+
+                        <label for="reasonForTaking-5">Reason for Taking:</label>
+                        <textarea id="reasonForTaking-5"
+                                  name="reasonForTaking"
+                                  placeholder="Reason for taking this course"
+                                  required>To gain software development experience.</textarea>
+
+                        <button type="button" class="delete-course">
+                            Delete Course
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- The add-course ID and delete-course class allow JavaScript to manage courses. -->
+                <button type="button" id="add-course">
+                    Add Course
+                </button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+
+                <label for="quote">Favorite Quote:</label>
+                <textarea id="quote" name="quote"
+                          placeholder="Enter your favorite quote"
+                          required>Strong code, stronger results.</textarea>
+
+                <label for="quoteAuthor">Quote Author:</label>
+                <input type="text" id="quoteAuthor"
+                       name="quoteAuthor"
+                       value="Aiden Orr"
+                       placeholder="Enter quote author"
+                       required>
+
+                <label for="funnyItem">Funny Thing (Optional):</label>
+                <textarea id="funnyItem" name="funnyItem"
+                          placeholder="Share something funny"></textarea>
+
+                <label for="somethingToShare">
+                    Something Interesting About Me (Optional):
+                </label>
+
+                <textarea id="somethingToShare"
+                          name="somethingToShare"
+                          placeholder="Share something interesting">I enjoy playing golf and working on programming projects.</textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Footer Links</legend>
+
+                <label for="cltWeb">CLT Web:</label>
+                <input type="url" id="cltWeb" name="cltWeb"
+                       value="https://webpages.charlotte.edu/aorr14/"
+                       placeholder="https://webpages.charlotte.edu/username/"
+                       required>
+
+                <label for="githubio">GitHub.io:</label>
+                <input type="url" id="githubio" name="githubio"
+                       value="https://aiden-orr.github.io/"
+                       placeholder="https://username.github.io/"
+                       required>
+
+                <label for="github">GitHub:</label>
+                <input type="url" id="github" name="github"
+                       value="https://github.com/aiden-orr"
+                       placeholder="https://github.com/username"
+                       required>
+
+                <label for="freeCodeCamp">freeCodeCamp:</label>
+                <input type="url" id="freeCodeCamp"
+                       name="freeCodeCamp"
+                       value="https://www.freecodecamp.org/aiden_orruncc"
+                       placeholder="https://www.freecodecamp.org/username"
+                       required>
+
+                <label for="codecademy">Codecademy:</label>
+                <input type="url" id="codecademy"
+                       name="codecademy"
+                       value="https://www.codecademy.com/profiles/course0282970004"
+                       placeholder="https://www.codecademy.com/profiles/username"
+                       required>
+
+                <label for="linkedin">LinkedIn:</label>
+                <input type="url" id="linkedin"
+                       name="linkedin"
+                       value="https://www.linkedin.com/in/aiden-orr-5bb413252/?isSelfProfile=true"
+                       placeholder="https://www.linkedin.com/in/username/"
+                       required>
+            </fieldset>
+
+            <!-- The clear button ID allows JavaScript to clear the form. -->
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button" id="clear">Clear</button>
+
+        </form>
+    </main>
+
+    <!-- This div loads the shared site footer. -->
+    <div data-include="components/footer.html"></div>
+
+    <script src="scripts/HTMLInclude.min.js"></script>
+    <script src="scripts/introduction.js"></script>
+    <script src="https://divonbriesen.github.io/teaching/tools/standards-check.js" defer></script>
+</body>
+</html>
