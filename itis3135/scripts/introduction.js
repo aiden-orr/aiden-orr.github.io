@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const url = new URL(value);
             return url.protocol === "https:" || url.protocol === "http:";
-        } catch(error) {
+        } catch (error) {
             return false;
         }
     }
