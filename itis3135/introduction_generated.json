@@ -1,0 +1,85 @@
+{
+    "firstName": "Aiden",
+    "middleName": "",
+    "nickname": "Moo",
+    "lastName": "Orr",
+    "acknowledgment": "I understand that this is a public document, and I won't put anything here I wouldn't want anyone to see.",
+    "acknowledgmentDate": "8/24/26",
+    "prettyNameDivider": "|",
+    "adjectives": "Anabolic",
+    "animal": "Orangutan",
+    "img": "images/aiden-orr.jpeg",
+    "pictureAlt": "Photo of Aiden Orr",
+    "caption": "Aiden Orr",
+    "personalInfo": {
+        "statement": "Hello! My name is Aiden Orr. I am a Computer Science student at UNC Charlotte concentrating in Data Science with a minor in Mathematics.",
+        "personalBackground": "I am from the Charlotte, North Carolina area.",
+        "professionalBackground": "I have experience working in fulfillment and inventory management and am interested in pursuing a career in data and software development.",
+        "academicBackground": "I am pursuing a Bachelor of Science in Computer Science with a concentration in Data Science and a minor in Mathematics.",
+        "primaryWorkComputer": "MacBook running macOS.",
+        "primaryWorkLocation": "Charlotte, North Carolina.",
+        "alternateComputerLocation": "Windows PC."
+    },
+    "courses": [
+        {
+            "department": "ITIS",
+            "courseNumber": "3135",
+            "courseTitle": "Front-End Web Application Development",
+            "reasonForTaking": "To learn web development."
+        },
+        {
+            "department": "ITCS",
+            "courseNumber": "3153",
+            "courseTitle": "Introduction to Artificial Intelligence",
+            "reasonForTaking": "To learn about AI."
+        },
+        {
+            "department": "ITCS",
+            "courseNumber": "3156",
+            "courseTitle": "Introduction to Machine Learning",
+            "reasonForTaking": "To learn machine learning."
+        },
+        {
+            "department": "MATH",
+            "courseNumber": "3180",
+            "courseTitle": "Predictive Analytics",
+            "reasonForTaking": "To improve my data analysis skills."
+        },
+        {
+            "department": "ITSC",
+            "courseNumber": "4155",
+            "courseTitle": "Software Development Projects",
+            "reasonForTaking": "To gain software development experience."
+        }
+    ],
+    "quote": "Strong code, stronger results.",
+    "quoteAuthor": "Aiden Orr",
+    "funnyItem": "",
+    "somethingToShare": "I enjoy playing golf and working on programming projects.",
+    "footerLinks": [
+        {
+            "label": "CLT Web",
+            "url": "https://webpages.charlotte.edu/aorr14/"
+        },
+        {
+            "label": "GitHub.io",
+            "url": "https://aiden-orr.github.io/"
+        },
+        {
+            "label": "GitHub",
+            "url": "https://github.com/aiden-orr"
+        },
+        {
+            "label": "freeCodeCamp",
+            "url": "https://www.freecodecamp.org/aiden_orruncc"
+        },
+        {
+            "label": "Codecademy",
+            "url": "https://www.codecademy.com/profiles/course0282970004"
+        },
+        {
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/in/aiden-orr-5bb413252/?isSelfProfile=true"
+        }
+    ]
+}
